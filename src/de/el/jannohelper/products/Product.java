@@ -1,7 +1,6 @@
 package de.el.jannohelper.products;
 
 import de.el.jannohelper.buildings.Building;
-import java.util.Map.Entry;
 
 /**
  *
@@ -9,14 +8,14 @@ import java.util.Map.Entry;
  */
 public abstract class Product {
 
-	public Product(String productName){
-		this.productName = productName;
+	public Product(String Name){
+		this.Name = Name;
 	}
 
-	private String productName;
+	private String Name;
 
-	public String getProductName(){
-		return this.productName;
+	public String getName(){
+		return this.Name;
 	}
 
 	public abstract Building getProducingBuilding();
