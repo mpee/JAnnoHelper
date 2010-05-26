@@ -1,7 +1,6 @@
 package de.el.jannohelper.buildings;
 
 import de.el.jannohelper.products.Product;
-import de.el.jannohelper.products.Product.Products;
 import java.util.Map;
 
 /**
@@ -10,12 +9,12 @@ import java.util.Map;
  */
 public class FishHut extends Building{
 
-	public FishHut(Product producedProduct) {
-		super("FishHut", 2, Products.FISH);
+	public FishHut() {
+		super("FishHut", 2, Product.FISH);
 	}
 
 	@Override
-	public Map<Products, Integer> getNeededProducts() {
+	public Map<Product, Integer> getNeededProducts() {
 		return null;
 	}
 
