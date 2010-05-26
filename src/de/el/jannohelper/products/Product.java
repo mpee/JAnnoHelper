@@ -8,15 +8,27 @@ import de.el.jannohelper.buildings.Building;
  */
 public abstract class Product {
 
-	public Product(String Name){
-		this.Name = Name;
-	}
+    public Product(String Name) {
+        this.Name = Name;
+    }
+    private String Name;
 
-	private String Name;
+    public String getName() {
+        return this.Name;
+    }
 
-	public String getName(){
-		return this.Name;
-	}
+    public abstract Building getProducingBuilding();
 
-	public abstract Building getProducingBuilding();
+    public static enum Products {
+
+        FISH,
+        CIDER,
+        SPICES,
+        LINEN_GARMENTS,
+        BREAD,
+        BEER,
+        LEATHER_JERKINS,
+        BOOKS,
+        CANDLESTICKS
+    }
 }

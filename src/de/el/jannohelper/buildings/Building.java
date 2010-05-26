@@ -1,8 +1,8 @@
 package de.el.jannohelper.buildings;
 
 import de.el.jannohelper.products.Product;
+import de.el.jannohelper.products.Product.Products;
 import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  *
@@ -10,14 +10,14 @@ import java.util.Map.Entry;
  */
 public abstract class Building {
 
-	public Building(String buildingName, double productionPerMinute, Product producedProduct){
+	public Building(String buildingName, double productionPerMinute, Product.Products product){
 		this.buildingName = buildingName;
 		this.productionPerMinute = productionPerMinute;
 		this.producedProduct = producedProduct;
 	}
 
 	private double productionPerMinute;
-	private Product producedProduct;
+	private Products producedProduct;
 	private String buildingName;
 
 	public String getBuildingName(){
@@ -28,11 +28,11 @@ public abstract class Building {
 		return productionPerMinute;
 	}
 
-	public Product getProducedProduct(){
+	public Products getProducedProduct(){
 		return this.producedProduct;
 	}
 
-	public abstract Map<Product, Integer> getNeededProducts();
+	public abstract Map<Products, Integer> getNeededProducts();
 	
 
 }

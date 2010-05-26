@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
 public class Main {
 
 	private static String clipboardContent;
-	private static final String SAMPLE = "bettler.300:bauern.0:buerger.0:patrizier.0:adlige.0:nomaden.0:gesandte.0";
+	
         private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 	/**
 	 * @param args the command line arguments
