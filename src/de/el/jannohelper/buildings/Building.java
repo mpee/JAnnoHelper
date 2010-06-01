@@ -30,41 +30,6 @@ public class Building {
 	private Product producedProduct;
 	private Map<Product, Double> neededProducts;
 	private String buildingName;
-
-	public String getBuildingName() {
-		return this.buildingName;
-	}
-
-	public double getProductionPerMinute() {
-		return productionPerMinute;
-	}
-
-	public Product getProducedProduct() {
-		return this.producedProduct;
-	}
-
-	public int getNeededProductsSize() {
-		return this.neededProducts.size();
-	}
-
-	public Map<Product, Double> getNeededProducts() {
-		return this.neededProducts;
-	}
-
-	public static Building getBuildingByProducedProduct(Product p) {
-		if (p == Product.FISH) {
-			return FISHERMANS_HUT;
-		} else if (p == Product.WOOD) {
-			return LUMBERJACKS_HUT;
-		} else if (p == Product.CIDER) {
-			return CIDER_FARM;
-		} else if (p == Product.HEMP) {
-			return HEMP_PLANTATION;
-		} else if (p == Product.LINEN_GARMENT) {
-			return WEAVERS_HUT;
-		}
-		return null;
-	}
 	public static final Building CIDER_FARM = new Building("Cider farm", 1.5, Product.CIDER);
 	public static final Building HEMP_PLANTATION = new Building("Hemp Plantage", 1, Product.HEMP);
 	public static final Building SPICE_FARM = new Building("Spice Farm", 2, Product.SPICE);
@@ -129,4 +94,23 @@ public class Building {
 	public static final Building PRINTING_HOUSE = new Building("Printing House", 3, Product.BOOKS, Product.PAPER, 0.5, Product.INDIGO, 1.0);
 	public static final Building GLASS_SMELTER = new Building("Glass Smelter", 1, Product.GLASS, Product.POTASH, 1.0, Product.QUARTZ, 0.5);
 
+	public String getBuildingName() {
+		return this.buildingName;
+	}
+
+	public double getProductionPerMinute() {
+		return productionPerMinute;
+	}
+
+	public Product getProducedProduct() {
+		return this.producedProduct;
+	}
+
+	public int getNeededProductsCount() {
+		return this.neededProducts.size();
+	}
+
+	public Map<Product, Double> getNeededProducts() {
+		return this.neededProducts;
+	}
 }
