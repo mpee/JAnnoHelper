@@ -190,7 +190,7 @@ public class MainGui {
 				if(b != null){
 									double productsNeeded = habitant.getValue() * c.getPopulation();
 				double buildingsNeeded = productsNeeded / b.getProductionPerMinute();
-				System.out.println(habitant.getKey().getName() + " -> " + productsNeeded + "(" + buildingsNeeded + ")");
+				System.out.println(" "+habitant.getKey().getName() + " -> " + productsNeeded + "(" + buildingsNeeded + ")");
 				} else{
 					LOG.debug("no building implementation for " + habitant.getKey().getName());
 				}

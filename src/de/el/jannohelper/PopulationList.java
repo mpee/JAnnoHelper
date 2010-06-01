@@ -14,6 +14,9 @@ public class PopulationList extends ArrayList<CitizenType> {
         super.add(new Peasent(0));
         super.add(new Citizen(0));
         super.add(new Patrician(0));
+		super.add(new Nobleman(0));
+		super.add(new Nomad(0));
+		super.add(new Envoy(0));
     }
 
     public void update(String updateString) {
