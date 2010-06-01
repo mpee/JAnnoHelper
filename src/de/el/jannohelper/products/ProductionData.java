@@ -13,7 +13,6 @@ public class ProductionData {
 
 	public static Map<Product, Double> getNeededProduct(Building building){
 		productionMap.clear();
-		if(building )
 		return productionMap;
 	}
 

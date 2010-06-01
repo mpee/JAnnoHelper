@@ -23,7 +23,6 @@ public class PopulationList extends ArrayList<CitizenType> {
             if (typeData.length == 2) {
                 for (CitizenType c : this) {
                     if (c.getName().toLowerCase().equals(typeData[0])) {
-                        System.out.println(c.getName());
                         c.setPopulation(Integer.parseInt(typeData[1]));
                     }
                 }

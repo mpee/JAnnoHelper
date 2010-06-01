@@ -1,11 +1,11 @@
 package de.el.jannohelper.citizens;
 
-import de.el.jannohelper.products.Product.Products;
+import de.el.jannohelper.products.Product;
 import java.util.Map;
 
 /**
  *
- * @author philipp
+ * @author PEH
  */
 public class Begger extends CitizenType {
 
@@ -14,10 +14,10 @@ public class Begger extends CitizenType {
     }
 
     @Override
-    public Map<Products, Double> getNeedingsPerHabitant() {
+    public Map<Product, Double> getNeedingsPerHabitant() {
         needings.clear();
-        needings.put(Products.FISH, 0.003508772);
-        needings.put(Products.CIDER, 0.002);
+        needings.put(Product.FISH, 0.007);
+        needings.put(Product.CIDER, 0.003);
         return needings;
     }
 }

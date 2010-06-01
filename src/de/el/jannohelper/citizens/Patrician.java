@@ -1,6 +1,6 @@
 package de.el.jannohelper.citizens;
 
-import de.el.jannohelper.products.Product.Products;
+import de.el.jannohelper.products.Product;
 import java.util.Map;
 
 /**
@@ -14,25 +14,25 @@ public class Patrician extends CitizenType {
     }
 
     @Override
-    public Map<Products, Double> getNeedingsPerHabitant() {
+    public Map<Product, Double> getNeedingsPerHabitant() {
         needings.clear();
-        needings.put(Products.FISH, 0.00110011);
-        needings.put(Products.SPICES, 0.00110011);
-        needings.put(Products.BREAD, 0.001375516);
-        needings.put(Products.CIDER, 0.001533742);
+        needings.put(Product.FISH, 0.0022);
+        needings.put(Product.SPICE, 0.0022);
+        needings.put(Product.BREAD, 0.0055);
+        needings.put(Product.CIDER, 0.0023);
         if (population >= 610) {
-            needings.put(Products.BEER, 0.0016);
+            needings.put(Product.BEER, 0.0024);
         }
-        needings.put(Products.LINEN_GARMENTS, 0.00095057);
+        needings.put(Product.LINEN_GARMENT, 0.0019);
         if (population >= 690) {
-            needings.put(Products.LEATHER_JERKINS, 0.00070028);
+            needings.put(Product.LEATHER_JERKINS, 0.0028);
 
         }
         if (population >= 940) {
-            needings.put(Products.BOOKS, 0.001142857);
+            needings.put(Product.BOOKS, 0.0016);
         }
         if (population >= 2500) {
-            needings.put(Products.CANDLESTICKS, 0.0004);
+            needings.put(Product.CANDLESTICKS, 0.0008);
         }
         return needings;
     }

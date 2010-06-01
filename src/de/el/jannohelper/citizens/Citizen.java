@@ -1,6 +1,6 @@
 package de.el.jannohelper.citizens;
 
-import de.el.jannohelper.products.Product.Products;
+import de.el.jannohelper.products.Product;
 import java.util.Map;
 
 /**
@@ -14,12 +14,12 @@ public class Citizen extends CitizenType{
     }
 
     @Override
-    public Map<Products, Double> getNeedingsPerHabitant() {
+    public Map<Product, Double> getNeedingsPerHabitant() {
         needings.clear();
-        needings.put(Products.FISH, 0.002);
-        needings.put(Products.SPICES, 0.002);
-        needings.put(Products.CIDER, 0.002941176);
-        needings.put(Products.LINEN_GARMENTS, 0.00210084);
+        needings.put(Product.FISH, 0.004);
+        needings.put(Product.SPICE, 0.004);
+        needings.put(Product.CIDER, 0.0044);
+        needings.put(Product.LINEN_GARMENT, 0.00420);
         return needings;
     }
 
