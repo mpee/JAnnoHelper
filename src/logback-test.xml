@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--<Pattern>%d %5p (%F:%L:%M) - %m%n</Pattern> -->
+            <Pattern> %d{HH:mm} %-5level [%thread] %logger{36}:%line - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <!--    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender
+        <File>topsis.log</File>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%5p [%t] (%l) - %m%n</Pattern>
+        </layout>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <maxIndex>1</maxIndex>
+            <FileNamePattern>topsis.log.%i</FileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>500KB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>-->
+
+    <root level="trace">
+        <appender-ref ref="console"/>
+        <!--<appender-ref ref="file"/>-->
+    </root>
+
+</configuration>
