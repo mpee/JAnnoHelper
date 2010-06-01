@@ -59,7 +59,7 @@ public class Building {
 		} else if (p == Product.CIDER) {
 			return CIDER_FARM;
 		} else if (p == Product.HEMP) {
-			return HEMP_PLANT;
+			return HEMP_PLANTATION;
 		} else if (p == Product.LINEN_GARMENT) {
 			return WEAVERS_HUT;
 		}
@@ -68,7 +68,7 @@ public class Building {
 	public static final Building FISH_HUT = new Building("Fisherman's hut", 2, Product.FISH);
 	public static final Building LUMBER_HUT = new Building("Lumberjack's hut", 1.5, Product.WOOD);
 	public static final Building CIDER_FARM = new Building("Cider farm", 1.5, Product.CIDER);
-	public static final Building HEMP_PLANT = new Building("Hemp Plantage", 1, Product.HEMP);
+	public static final Building HEMP_PLANTATION = new Building("Hemp Plantage", 1, Product.HEMP);
 	public static final Building WEAVERS_HUT = new Building("Weaver's hut", 1, Product.LINEN_GARMENT, Product.HEMP, 2.0);
 	public static final Building SPICE_FARM = new Building("Spice Farm", 2, Product.SPICE);
 	public static final Building ALMOND_PLANTATION = new Building("Almond Plantation", 2, Product.ALMOND);
