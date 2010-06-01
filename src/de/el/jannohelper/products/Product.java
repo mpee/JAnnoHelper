@@ -28,7 +28,7 @@ public class Product {
 	public static final Product WHEAT = new Product("Wheat");
 	public static final Product HERBS = new Product("Herbs");
 	public static final Product GRAPES = new Product("Grapes");
-	public static final Product WAX = new Product("Beeswax");
+	public static final Product BEESWAX = new Product("Beeswax");
 	public static final Product COFFEE_BEANS = new Product("Coffee Beans");
 	public static final Product ROSE_OIL = new Product("Rose Oil");
 	public static final Product SUGAR_CANE = new Product("Sugar Cane");
