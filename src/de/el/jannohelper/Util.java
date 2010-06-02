@@ -33,7 +33,7 @@ public class Util {
     public static CitizenType getCitizenTypeByName(String name, int population) {
         CitizenType ret = null;
         if (name.equals("bettler")) {
-            ret = new Begger(population);
+            ret = new Beggar(population);
         }
         return ret;
     }

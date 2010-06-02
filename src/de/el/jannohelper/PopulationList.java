@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class PopulationList extends ArrayList<CitizenType> {
 
     public PopulationList() {
-        super.add(new Begger(0));
-        super.add(new Peasent(0));
+        super.add(new Beggar(0));
+        super.add(new Peasant(0));
         super.add(new Citizen(0));
         super.add(new Patrician(0));
 		super.add(new Nobleman(0));
@@ -19,7 +19,7 @@ public class PopulationList extends ArrayList<CitizenType> {
 		super.add(new Envoy(0));
     }
 
-    public void update(String updateString) {
+    public void update(String updateString) throws NumberFormatException {
         String[] dataArray = updateString.split(":");
         for (String dataItem : dataArray) {
             String[] typeData = dataItem.split("\\.");

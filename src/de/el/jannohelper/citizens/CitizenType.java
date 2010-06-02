@@ -3,6 +3,7 @@ package de.el.jannohelper.citizens;
 import de.el.jannohelper.products.Product;
 import java.util.HashMap;
 import java.util.Map;
+import org.eclipse.swt.graphics.Image;
 
 /**
  *
@@ -10,16 +11,19 @@ import java.util.Map;
  */
 public abstract class CitizenType {
 
-	public CitizenType(String name, int population, int populationPerHouse) {
+	public CitizenType(String name, int population, int populationPerHouse, Image image) {
 		this.name = name;
 		this.population = population;
 		this.populationPerHouse = populationPerHouse;
 		this.needings = new HashMap<Product, Double>();
+		this.image = image;
 	}
+
 	String name;
 	int population;
 	int populationPerHouse;
 	Map<Product, Double> needings;
+	private Image image;
 
 	public int getPopulation() {
 		return this.population;
@@ -35,9 +39,13 @@ public abstract class CitizenType {
 
 	public int getNeededHouses() {
 		if (population != 0) {
-			return (int) Math.round(population / populationPerHouse + 0.5d);
+			return (int) (population / populationPerHouse);
 		}
 		return 0;
+	}
+
+	public Image getImage(){
+		return this.image;
 	}
 
 	public String getName() {

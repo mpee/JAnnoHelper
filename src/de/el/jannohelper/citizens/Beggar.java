@@ -2,15 +2,17 @@ package de.el.jannohelper.citizens;
 
 import de.el.jannohelper.products.Product;
 import java.util.Map;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
 /**
  *
  * @author PEH
  */
-public class Begger extends CitizenType {
+public class Beggar extends CitizenType {
 
-    public Begger(int population) {
-        super("Bettler", population, 500);
+    public Beggar(int population) {
+        super("Bettler", population, 500, new Image(Display.getDefault(), CitizenType.class.getResourceAsStream("resources/beggar.png")));
     }
 
     @Override

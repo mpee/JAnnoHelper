@@ -94,7 +94,7 @@ public class Building {
 	public static final Building PRINTING_HOUSE = new Building("Printing House", 3, Product.BOOKS, Product.PAPER, 0.5, Product.INDIGO, 1.0);
 	public static final Building GLASS_SMELTER = new Building("Glass Smelter", 1, Product.GLASS, Product.POTASH, 1.0, Product.QUARTZ, 0.5);
 
-	public String getBuildingName() {
+	public String getName() {
 		return this.buildingName;
 	}
 

@@ -2,6 +2,8 @@ package de.el.jannohelper.citizens;
 
 import de.el.jannohelper.products.Product;
 import java.util.Map;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
 /**
  *
@@ -10,7 +12,7 @@ import java.util.Map;
 public class Citizen extends CitizenType{
 
     public Citizen(int population) {
-        super("Buerger", population, 15);
+        super("Buerger", population, 15, new Image(Display.getDefault(), CitizenType.class.getResourceAsStream("resources/citizen.png")));
     }
 
     @Override

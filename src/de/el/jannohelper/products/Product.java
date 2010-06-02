@@ -6,15 +6,26 @@ package de.el.jannohelper.products;
  */
 public class Product {
 
-	public Product(String Name) {
-		this.Name = Name;
+	public Product(String name) {
+		this.name = name;
+		this.image = "missing.png";
 	}
-	private String Name;
+
+	public Product(String name, String image){
+		this(name);
+		this.image = image;
+	}
+	private String name;
+	private String image;
+
+	public String getImage(){
+		return image;
+	}
 
 	public String getName() {
-		return this.Name;
+		return this.name;
 	}
-	public static final Product FISH = new Product("Fish");
+	public static final Product FISH = new Product("Fish", "fish.png");
 	public static final Product CIDER = new Product("Cider");
 	public static final Product SPICE = new Product("Spice");
 	public static final Product LINEN_GARMENT = new Product("Linen Garment");
