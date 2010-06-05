@@ -1,5 +1,9 @@
 package de.el.jannohelper.products;
 
+import de.el.jannohelper.gui.ImageMap;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
+
 /**
  *
  * @author PEH
@@ -8,44 +12,49 @@ public class Product {
 
 	public Product(String name) {
 		this.name = name;
-		this.image = "missing.png";
+		this.imageMapPosition = new Point(10, 16);
 	}
 
-	public Product(String name, String image){
+	public Product(String name, int x, int y){
 		this(name);
-		this.image = image;
+		this.imageMapPosition = new Point(x, y);
 	}
 	private String name;
-	private String image;
+	private Point imageMapPosition;
+	private int y;
 
-	public String getImage(){
-		return image;
+	public Point getPoint(){
+		return this.imageMapPosition;
+	}
+
+	public Image getImage(){
+		return ImageMap.getImage(this);
 	}
 
 	public String getName() {
 		return this.name;
 	}
-	public static final Product FISH = new Product("Fish", "fish.png");
-	public static final Product CIDER = new Product("Cider");
-	public static final Product SPICE = new Product("Spice");
-	public static final Product LINEN_GARMENT = new Product("Linen Garment");
-	public static final Product BREAD = new Product("Bread");
-	public static final Product BEER = new Product("Beer");
-	public static final Product LEATHER_JERKINS = new Product("Leather jerkins");
-	public static final Product BOOKS = new Product("Books");
-	public static final Product CANDLESTICKS = new Product("Candlesticks");
-	public static final Product WOOD = new Product("Wood");
-	public static final Product HEMP = new Product("Hemp");
-	public static final Product WHEAT = new Product("Wheat");
-	public static final Product HERBS = new Product("Herbs");
-	public static final Product GRAPES = new Product("Grapes");
-	public static final Product BEESWAX = new Product("Beeswax");
-	public static final Product COFFEE_BEANS = new Product("Coffee Beans");
-	public static final Product ROSE_OIL = new Product("Rose Oil");
-	public static final Product SUGAR_CANE = new Product("Sugar Cane");
-	public static final Product INDIGO = new Product("Indigo");
-	public static final Product ALMOND = new Product("Almond");
-	public static final Product SILK = new Product("Silk");
+	public static final Product FISH = new Product("Fish", 18, 0);
+	public static final Product CIDER = new Product("Cider", 12, 1);
+	public static final Product SPICE = new Product("Spice", 11 , 1);
+	public static final Product LINEN_GARMENT = new Product("Linen Garment", 0, 2);
+	public static final Product BREAD = new Product("Bread", 5, 1);
+	public static final Product BEER = new Product("Beer", 14, 1);
+	public static final Product LEATHER_JERKINS = new Product("Leather jerkins", 2, 2);
+	public static final Product BOOKS = new Product("Books", 11, 2);
+	public static final Product CANDLESTICKS = new Product("Candlesticks", 14, 2);
+	public static final Product WOOD = new Product("Wood", 1, 0);
+	public static final Product HEMP = new Product("Hemp", 21, 1);
+	public static final Product WHEAT = new Product("Wheat", 3, 1);
+	public static final Product HERBS = new Product("Herbs", 13, 1);
+	public static final Product GRAPES = new Product("Grapes", 16, 1);
+	public static final Product BEESWAX = new Product("Beeswax", 12, 2);
+	public static final Product COFFEE_BEANS = new Product("Coffee Beans", 18 , 1);
+	public static final Product ROSE_OIL = new Product("Rose Oil", 0, 3);
+	public static final Product SUGAR_CANE = new Product("Sugar Cane", 7, 1);
+	public static final Product INDIGO = new Product("Indigo", 3, 3);
+	public static final Product ALMOND = new Product("Almond", 6, 1);
+	public static final Product SILK = new Product("Silk", 2, 3);
 	public static final Product DATES = new Product("Dates");
 	public static final Product MILK = new Product("Milk");
 	public static final Product CATTLE = new Product("Cattle");

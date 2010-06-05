@@ -65,7 +65,7 @@ public class Building {
 	public static final Building SUGAR_MILL = new Building("Sugar Mill", 4, Product.SUGAR, Product.SUGAR_CANE, 1.0);
 	public static final Building PAPER_MILL = new Building("Paper Mill", 3, Product.PAPER, Product.WOOD, 1.0);
 	public static final Building FURRIERS_WORKSHOP = new Building("Furrier's Workshop", 2.5, Product.FUR_COATS, Product.FURS, 1.0, Product.SALT, 0.331);
-	public static final Building WEAVERS_HUT = new Building("Waevers Hut", 2, Product.LINEN_GARMENT, Product.HEMP, 1.0);
+	public static final Building WEAVERS_HUT = new Building("Weavers Hut", 2, Product.LINEN_GARMENT, Product.HEMP, 1.0);
 	public static final Building TOOLMAKERS_WORKSHOP = new Building("Toolmakers Workshop", 2, Product.TOOLS, Product.IRON, 0.5);
 	public static final Building MOSAIC_WORKSHOP = new Building("Mosaik Workshop", 2.4, Product.MOSAIC, Product.CLAY, 1.0, Product.QUARTZ, 0.5);
 	public static final Building MILL = new Building("Mill", 4, Product.FLOUR, Product.WHEAT, 1.0);

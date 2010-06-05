@@ -6,6 +6,8 @@ import de.el.jannohelper.buildings.Building;
 import de.el.jannohelper.buildings.BuildingFactory;
 import de.el.jannohelper.citizens.CitizenType;
 import de.el.jannohelper.products.Product;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map.Entry;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -20,6 +22,7 @@ import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
@@ -55,10 +58,13 @@ public class MainGui {
 	private Composite comp;
 	private Text importStringText;
 	private static final String VERSION = "0.1 pre_alpha";
-	private Group populationGroup, productGroup;
+	private Group populationGroup, productGroup, chainGroup;
 	private Images images;
 	private HabitantWidget[] habitantWidgets = new HabitantWidget[7];
 	private BuildingWidget[] buildingWidgets = new BuildingWidget[21];
+	private List<ImageLabel> productChain = new ArrayList<ImageLabel>();
+	private ImageLabel chainProduct;
+	private ImageLabel chainSeperator;
 
 	private void initGui() {
 		comp = new Composite(shell, SWT.NONE);
@@ -77,7 +83,23 @@ public class MainGui {
 
 		initCitizenGroup();
 		initProductGroup();
+		initChainGroup();
 
+	}
+
+	private void initChainGroup() {
+		chainGroup = new Group(comp, SWT.NONE);
+		FormData f = new FormData();
+		f.top = new FormAttachment(productGroup, 5);
+		f.left = new FormAttachment(0, 5);
+		f.right = new FormAttachment(100, -5);
+		f.bottom = new FormAttachment(100, -5);
+		f.height = 100;
+		chainGroup.setLayoutData(f);
+		chainGroup.setText("Production chain");
+		RowLayout r = new RowLayout(SWT.HORIZONTAL);
+		r.justify = true;
+		chainGroup.setLayout(r);
 	}
 
 	private void initProductGroup() {
@@ -94,15 +116,9 @@ public class MainGui {
 		{
 			int i = 0;
 			for (Entry<Building, Integer> building : buildingList.entrySet()) {
-				f = new FormData();
-				f.top = new FormAttachment(0, 5);
-				if (i == 0) {
-					f.left = new FormAttachment(0, 5);
-				} else {
-					f.left = new FormAttachment(buildingWidgets[i - 1], 5);
-				}
 				buildingWidgets[i] = new BuildingWidget(productGroup, SWT.NONE, building.getKey());
-//				buildingWidgets[i].setLayoutData(f);
+				buildingWidgets[i].addButtonSelectionListener(new BuildingChainButtonSelectionListener(building.getKey()));
+
 				i++;
 			}
 		}
@@ -212,8 +228,65 @@ public class MainGui {
 				populationList.update(importStringText.getText());
 				listUpdated();
 			} catch (NumberFormatException ex) {
-			LOG.debug("only numbers allowed");
+				LOG.debug("only numbers allowed");
 			}
 		}
+	}
+
+	private class BuildingChainButtonSelectionListener extends SelectionAdapter {
+
+		public BuildingChainButtonSelectionListener(Building b) {
+			this.building = b;
+		}
+		private Building building;
+		private int amount;
+
+		@Override
+		public void widgetSelected(SelectionEvent e) {
+			LOG.debug("clearing group");
+			for (ImageLabel l : productChain) {
+				l.dispose();
+			}
+			productChain = new ArrayList<ImageLabel>();
+			drawProductChain(building);
+			chainGroup.pack();
+		}
+	}
+
+	private void drawProductChain(Building b) {
+		LOG.debug("drawing chain");
+		chainProduct = new ImageLabel(chainGroup, SWT.NONE, false, true);
+		chainProduct.setImage(b.getProducedProduct().getImage());
+		chainProduct.setText(b.getName());
+		productChain.add(chainProduct);
+		addNeededBuildingsToChainList(b);
+
+	}
+
+	private void addSeperatorToChainGroup(String text) {
+		chainSeperator = new ImageLabel(chainGroup, SWT.NONE, false, true);
+		chainSeperator.setText(text);
+	}
+
+	private void addNeededBuildingsToChainList(Building parent) {
+		if (parent.getNeededProductsCount() > 0) {
+			addSeperatorToChainGroup("=");
+			int i = 0;
+			for (Entry<Product, Double> e : parent.getNeededProducts().entrySet()) {
+				
+				Building b = BuildingFactory.getBuildingByProduct(e.getKey());
+				chainProduct = new ImageLabel(chainGroup, SWT.NONE, false, true);
+				chainProduct.setImage(b.getProducedProduct().getImage());
+				chainProduct.setText(b.getName());
+				productChain.add(chainProduct);
+				addNeededBuildingsToChainList(b);
+				if (i < parent.getNeededProductsCount()) {
+					LOG.debug("i =  {} size =  {} drawing + for {}", new Object[]{i, parent.getNeededProductsCount(), b.getName()});
+					addSeperatorToChainGroup("+");
+				}
+				i++;
+			}
+		}
+
 	}
 }

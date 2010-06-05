@@ -3,6 +3,8 @@ package de.el.jannohelper.gui;
 import de.el.jannohelper.buildings.Building;
 import de.el.jannohelper.products.Product;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -53,7 +55,7 @@ public class BuildingWidget extends Composite {
 		f.right = new FormAttachment(100);
 		image = new Label(this, SWT.NONE);
 
-		image.setImage(new Image(Display.getDefault(), Product.class.getResourceAsStream("resources/" + building.getProducedProduct().getImage())));
+		image.setImage(building.getProducedProduct().getImage());
 		image.setLayoutData(f);
 		image.setToolTipText(building.getName());
 	}
@@ -84,5 +86,9 @@ public class BuildingWidget extends Composite {
 		chain = new Button(this, SWT.NONE);
 		chain.setLayoutData(f);
 		chain.setImage(chainImage);
+	}
+
+	public void addButtonSelectionListener(SelectionListener listener){
+		this.chain.addSelectionListener(listener);
 	}
 }
